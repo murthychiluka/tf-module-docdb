@@ -1,9 +1,19 @@
 resource "aws_docdb_cluster" "docdb" {
   cluster_identifier      = "${var.env}-docdb"
   engine                  = var.engine
-  master_username         = "foo"
-  master_password         = "mustbeeightchars"
-  backup_retention_period = 5
-  preferred_backup_window = "07:00-09:00"
-  skip_final_snapshot     = true
+  master_username         = "data.aws_ssm_parameter.user"
+  master_password         = "data.aws_ssm_parameter.pass"
+  backup_retention_period = var.backup_retention_period
+  preferred_backup_window = var.preferred_backup_window
+  skip_final_snapshot     = var.skip_final_snapshot
+}
+
+resource "aws_docdb_subnet_group" "main" {
+  name       = "${var.env}-docdb"
+  subnet_ids = var.subnet_ids
+
+  tags = merge(
+    var.tags,
+    { Name = "${var.env}-subnet-group" }
+  )
 }
