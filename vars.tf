@@ -9,3 +9,5 @@ variable "engine_version" {}
 variable "storage_encrypted" {
   default = true
 }
+variable "no_of_instances" {}
+variable "instance_class" {}
