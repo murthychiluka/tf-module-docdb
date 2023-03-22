@@ -6,3 +6,6 @@ variable "skip_final_snapshot" {}
 variable "tags" {}
 variable "subnet_ids" {}
 variable "engine_version" {}
+variable "storage_encrypted" {
+  default = true
+}
