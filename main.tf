@@ -1,6 +1,7 @@
 resource "aws_docdb_cluster" "docdb" {
   cluster_identifier      = "${var.env}-docdb"
   engine                  = var.engine
+  engine_version          = var.engine_version
   master_username         = "data.aws_ssm_parameter.user"
   master_password         = "data.aws_ssm_parameter.pass"
   backup_retention_period = var.backup_retention_period
