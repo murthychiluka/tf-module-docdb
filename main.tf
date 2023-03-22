@@ -1,4 +1,4 @@
-resource "aws_docdb_cluster" "docdb" {
+resource "aws_docdb_cluster" "main" {
   cluster_identifier      = "${var.env}-docdb"
   engine                  = var.engine
   engine_version          = var.engine_version
