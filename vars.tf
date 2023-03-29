@@ -11,3 +11,4 @@ variable "storage_encrypted" {
 }
 variable "no_of_instances" {}
 variable "instance_class" {}
+variable "subnets" {}
