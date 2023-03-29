@@ -11,4 +11,5 @@ variable "storage_encrypted" {
 }
 variable "no_of_instances" {}
 variable "instance_class" {}
-variable "subnets" {}
+variable "allow_subnets" {}
+variable "vpc_id" {}
